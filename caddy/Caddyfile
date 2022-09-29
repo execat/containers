@@ -9,3 +9,16 @@ portainer.lolcat.org {
 yacht.lolcat.org {
   reverse_proxy yacht:8000
 }
+
+pi.lolcat.org {
+  reverse_proxy pihole:4443
+}
+
+pi-http.lolcat.org {
+  reverse_Proxy pihole:1010
+}
+
+#domain.lolcat.org {
+#  reverse_proxy domain:9091
+#}
+

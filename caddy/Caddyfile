@@ -1,0 +1,7 @@
+{
+  email anujmorex@gmail.com
+}
+
+portainer.lolcat.org {
+  reverse_proxy portainer:9000
+}

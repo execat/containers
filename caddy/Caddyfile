@@ -5,3 +5,7 @@
 portainer.lolcat.org {
   reverse_proxy portainer:9000
 }
+
+yacht.lolcat.org {
+  reverse_proxy portainer:8000
+}

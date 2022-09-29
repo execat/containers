@@ -18,22 +18,21 @@ services:
       - 9000:9000
 
   yacht:
+    image: selfhostedpro/yacht
     container_name: yacht
     restart: unless-stopped
-    ports:
-      - 8000:8000
     volumes:
       - yacht:/config
       - /var/run/docker.sock:/var/run/docker.sock
-    image: selfhostedpro/yacht
+    networks:
+      - caddy
+    ports:
+      - 8033:8000
 
   caddy:
     image: caddy:latest
-    restart: unless-stopped
     container_name: caddy
-    ports:
-      - 80:80
-      - 443:443
+    restart: unless-stopped
     volumes:
       - /home/atm/containers/caddy/Caddyfile:/etc/caddy/Caddyfile
       - /home/atm/containers/caddy/site:/srv
@@ -41,6 +40,9 @@ services:
       - /home/atm/containers/caddy/caddy_config:/config
     networks:
       - caddy
+    ports:
+      - 80:80
+      - 443:443
 
 volumes:
   caddy_data:
